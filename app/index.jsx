@@ -1,21 +1,27 @@
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { FokusButton } from '../components/FokusButton';
 
 
 export default function Index() {
  return (
-   <View>
-    <Image source={require('../assets/images/Logo.png')}/>
-    <View>
-      <Text>Otimize sua produtividade,
-        mergulhe no que importa
+   <View style={styles.container}>
+    <Image source={require('../assets/images/logo.png')}/>
+    <View style={styles.inner}>
+      <Text style={styles.title}>
+            Otimize sua produtividade,{'\n'}
+          <Text style={styles.bold}>
+              mergulhe no que importa
+          </Text>
       </Text>
       <Image source={require('../assets/images/tela_inicial.png')}/>
-      <FokusButton title='Quero Iniciar!'/>
+      <FokusButton 
+        title='Quero Iniciar!'
+        onPress={() => router.navigate('/viacep')}
+        />
     </View>
 
-    <Link href={{ pathname: '/pomodoro'}}>Quero Iniciar!</Link> 
+    {/* <Link href={{ pathname: '/pomodoro'}}>Quero Iniciar!</Link>  */}
 
     <View style={styles.footer}>
             <Text style={styles.footerText}>
@@ -38,20 +44,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#021123',
     gap: 40
   },
-  actions: {
-    paddingVertical: 24,
-    paddingHorizontal: 24,
-    backgroundColor: '#14448080',
-    width: '80%',
-    borderRadius: 32,
-    borderWidth: 2,
-    borderColor: '#144480',
-    gap: 32
+  inner: {
+    gap: 16,
   },
-  context: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center'
+  title: {
+    color: '#FFF',
+    textAlign: "center",
+    fontSize: 26,
+  },
+  bold: {
+    fontWeight: 'bold',
   },
   footer: {
     width: '80%',
