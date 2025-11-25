@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Keyboard, Pressable, StyleSheet } from "react-native";
 import { Text, TextInput } from "react-native";
 import { View } from "react-native";
-import { FokusButton } from "../components/FokusButton";
+import { FokusButton } from "../src/components/FokusButton";
 
 export default function ViaCep() {
     // CEP

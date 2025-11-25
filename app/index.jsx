@@ -1,12 +1,12 @@
 import { Link, router } from 'expo-router';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { FokusButton } from '../components/FokusButton';
+import { FokusButton } from '../src/components/FokusButton';
 
 
 export default function Index() {
  return (
    <View style={styles.container}>
-    <Image source={require('../assets/images/logo.png')}/>
+    <Image source={require('../src/assets/images/logo.png')}/>
     <View style={styles.inner}>
       <Text style={styles.title}>
             Otimize sua produtividade,{'\n'}
@@ -14,7 +14,7 @@ export default function Index() {
               mergulhe no que importa
           </Text>
       </Text>
-      <Image source={require('../assets/images/tela_inicial.png')}/>
+      <Image source={require('../src/assets/images/tela_inicial.png')}/>
       <FokusButton 
         title='Quero Iniciar!'
         onPress={() => router.navigate('/viacep')}
