@@ -24,7 +24,7 @@ export default function ViaCep() {
 
         try {
             // Faz a requisição HTTP para a API VIACEP com o cep informado.
-            const url = `https://viacep.com.br/${cepInput}/json/`
+            const url = `https://viacep.com.br/ws/${cepInput}/json/`  // WS
             const response = await fetch(url);
 
             // Converte a resposta para obj do js. 
@@ -85,8 +85,15 @@ export default function ViaCep() {
                         <Text style={styles.cardText}> DDD: {dados.ddd} </Text>
                     </View>
                 )}
-
             </View>
+                {/* Botão para limpar o resultado */}
+                {(dados || error) && (
+                 <FokusButton 
+                    title="Limpar Resultado"
+                    onPress={limparResultado}
+                 />
+                )}
+
         </View>
     )
 }
@@ -97,6 +104,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#021123",
         padding: 20,
         alignItems: "stretch",
+        gap: 18
     },
     title: {
         fontSize: 22,
@@ -125,5 +133,18 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         borderWidth: 1,
         borderColor: "#294763",
+        padding: 16,
+        gap: 4,
+        marginTop: 35
     },
+    cardTitle: {
+        color: '#D6E4F0',
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 6,
+    },
+    cardText: {
+        color: '#98A0A8',
+        fontSize: 16,
+    }
 })
